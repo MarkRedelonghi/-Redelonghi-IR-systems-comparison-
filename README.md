@@ -1,3 +1,5 @@
+# Analysis and comparison of information retrieval systems
+
 This repository is a product of a thesis titled Analysis and comparison of information retrieval systems.
 
 Application's purpose is testing IR systems Apache Solr 8.11 and Milvus 2.0.2 on corpuses with with defined system configurations and specified queries.
