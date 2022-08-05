@@ -1,0 +1,8 @@
+python-dateutil==2.8.2
+psutil==5.9.1
+pandas==1.4.3
+pymilvus==2.0.2
+sentence-transformers==2.2.1
+scikit-learn==1.1.1
+psycopg2-binary==2.9.3
+
