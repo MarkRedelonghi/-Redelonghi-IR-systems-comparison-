@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import sys
+import os
 
 from datetime import date
 from testing.config_tests import *
@@ -9,6 +10,7 @@ from testing.test_utils import Progress
 from solr.solr import Solr
 from milvus.milvus import Milvus
 
+LOG_PATH = "./logs/"
 
 MILVUS_CLIENT_PARAMETERS = {
     "milvus_port":19530,
@@ -223,7 +225,7 @@ for i in range(arguments_num):
             " -i  --Iteration   Number of tests. Default is one, which is recommended for indexing of larger files.\n"+
             " -d  --Drop        Drop table and collections, enabled by default. This only works with Milvus system. [0/1]\n"+
             " -c  --Clear       Clear data, enabled by default.  [0/1]\n"+
-            " -f  --File        Specifiy absolut path for the log file. Default directory is in App/logs/. ")
+            " -f  --File        Specifiy absolute path for the log file. Default directory is in App/logs/. ")
 
         exit()
 
@@ -231,7 +233,7 @@ for i in range(arguments_num):
         currentValue = argumentList[i+1]
         if(currentArgument in ("-s", "--System")):
             system = currentValue.lower()
-        elif(currentArgument in ("-c", "--Config") and currentValue.isnumeric ):
+        elif(currentArgument in ("-t", "--Test") and currentValue.isnumeric ):
             config = int(currentValue)
         elif(currentArgument in ("-a", "--Action")):
             action = currentValue.lower()
@@ -239,18 +241,18 @@ for i in range(arguments_num):
             iteration = int(currentValue)
         elif(currentArgument in ("-d", "--Drop") and currentValue.isnumeric):
             drop = int(currentValue)
-        elif(currentArgument in ("-cl", "--Clear") and currentValue.isnumeric):
+        elif(currentArgument in ("-c", "--Clear") and currentValue.isnumeric):
             clear = int(currentValue)
         elif(currentArgument in ("-f", "--File") and currentValue.isnumeric):
             filename = currentValue
-        elif(currentArgument in ("-f", "--File") and currentValue.isnumeric):
-            filename = currentValue
-
        
 
 if(system == None or config == None):
-    print("Error system and config number must be given.\nExample: -s Solr -c 1")
+    print("Error system and config number must be given.\nExample: -s Solr -t 1")
 else:
+    # Check if logs dir exists
+    if(not os.path.exists(LOG_PATH)):
+        os.makedirs(LOG_PATH)
     logging.basicConfig(stream=open(filename, 'a', encoding='utf-8'), level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s', datefmt='%d/%m/%Y %I:%M:%S %p')
 
     runTests(system, config, action, iteration, clear,  drop)

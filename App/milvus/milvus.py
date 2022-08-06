@@ -142,6 +142,9 @@ class Milvus:
         # model = SentenceTransformer(name) if no GPU
         sys.stdout = sys.__stdout__
 
+        # Check if models dir exists
+        if(not os.path.exists(MODELS_PATH)):
+            os.makedirs(MODELS_PATH)
         model.save(model_path)
        
         return model
