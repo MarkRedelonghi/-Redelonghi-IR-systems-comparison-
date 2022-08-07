@@ -6,7 +6,8 @@ Application's purpose is testing IR systems Apache Solr 8.11 and Milvus 2.0.2 on
 
 ## Requirements
 
-- Downloaded project code
+- Git LFS
+- Cloned project code
 - Python 3.8.10
 - Docker 
 - CUDA supported GPU. [List](https://developer.nvidia.com/cuda-gpus)
