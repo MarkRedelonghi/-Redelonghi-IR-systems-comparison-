@@ -5,13 +5,14 @@ This repository is a product of a thesis titled Analysis and comparison of infor
 Application's purpose is testing IR systems Apache Solr 8.11 and Milvus 2.0.2 on corpuses with with defined system configurations and specified queries.
 
 ## Requirements
-
-- Git LFS
-- Cloned project code
 - Python 3.8.10
 - Docker 
 - CUDA supported GPU. [List](https://developer.nvidia.com/cuda-gpus)
 - Anaconda Python distribution
+- Cloned repository with Git LFS or
+ 
+  downloaded project code with manually downloaded files in App/data/corpus
+
 
 ## System installation
 
