@@ -9,10 +9,7 @@ Application's purpose is testing IR systems Apache Solr 8.11 and Milvus 2.0.2 on
 - Docker 
 - CUDA supported GPU. [List](https://developer.nvidia.com/cuda-gpus)
 - Anaconda Python distribution
-- Cloned repository with Git LFS or
- 
-  downloaded project code with manually downloaded files in App/data/corpus
-
+- Cloned repository with Git LFS 
 
 ## System installation
 
